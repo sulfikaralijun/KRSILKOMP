@@ -1,5 +1,5 @@
 <script setup>
-import { Head, usePage } from '@inertiajs/vue3';
+import { Head, usePage, Link } from '@inertiajs/vue3';
 import {
     Plus, LayoutGrid, Inbox, BookOpen, CheckSquare, Users, Settings, LogOut,
     Search, Bell, ArrowRight, MoreVertical, ChevronLeft, ChevronRight,
@@ -17,93 +17,6 @@ const menuItems = [
     { name: 'Group', icon: Users },
 ]
 
-const friends = [
-    { name: 'Bagas Mahpie', status: 'Friend', avatar: 'https://randomuser.me/api/portraits/men/1.jpg' },
-    { name: 'Jason Ranti', status: 'Friend', avatar: 'https://randomuser.me/api/portraits/men/2.jpg' },
-    { name: 'Rizky Maulana', status: 'Friend', avatar: 'https://randomuser.me/api/portraits/men/3.jpg' },
-]
-
-const courses = [
-    {
-        title: 'Belajar HTML Dasar',
-        mentor: {
-            name: 'Bagas Mahpie',
-            avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
-        },
-        category: 'HTML',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, voluptates.',
-        image: 'https://randomuser.me/api/portraits/men/1.jpg',
-        icon: LayoutGrid,
-    },
-]
-
-const activityBars = [
-    { date: 1, height: 40, isActive: true },
-    { date: 2, height: 20 },
-    { date: 3, height: 60 },
-    { date: 4, height: 40 },
-    { date: 5, height: 10 },
-    { date: 6, height: 20 },
-    { date: 7, height: 40 },
-    { date: 8, height: 20 },
-    { date: 9, height: 60 },
-    { date: 10, height: 40 },
-    { date: 11, height: 10 },
-    { date: 12, height: 20 },
-    { date: 13, height: 40 },
-    { date: 14, height: 20 },
-    { date: 15, height: 60 },
-    { date: 16, height: 40 },
-    { date: 17, height: 10 },
-    { date: 18, height: 20 },
-    { date: 19, height: 40 },
-    { date: 20, height: 20 },
-    { date: 21, height: 60 },
-    { date: 22, height: 40 },
-    { date: 23, height: 10 },
-    { date: 24, height: 20 },
-    { date: 25, height: 40 },
-    { date: 26, height: 20 },
-    { date: 27, height: 60 },
-    { date: 28, height: 40 },
-    { date: 29, height: 10 },
-    { date: 30, height: 20 },
-]
-
-const yourLessons = [
-    {
-        title: 'Belajar HTML Dasar',
-        mentor: {
-            name: 'Bagas Mahpie',
-            avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
-        },
-        category: 'HTML',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, voluptates.',
-        image: 'https://randomuser.me/api/portraits/men/1.jpg',
-        icon: LayoutGrid,
-    },
-]
-
-const continueLessons = [
-    {
-        title: 'Belajar HTML Dasar',
-        mentor: {
-            name: 'Bagas Mahpie',
-            avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
-        },
-        category: 'HTML',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, voluptates.',
-        image: 'https://randomuser.me/api/portraits/men/1.jpg',
-        icon: LayoutGrid,
-    },
-]
-
-const mentors = [
-    {
-        name: 'Bagas Mahpie',
-        avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
-    },
-]
 </script>
 
 <template>
@@ -124,10 +37,11 @@ const mentors = [
 
                 <nav class="mt-8 space-y-2">
                     <div class="text-sm text-gray-500 px-4 mb-2">OVERVIEW</div>
-                    <a href="#" class="flex items-center space-x-3 px-4 py-2 text-purple-600 bg-purple-50 rounded-lg">
-                        <LayoutGrid class="w-5 h-5" />
-                        <span>Dashboard</span>
-                    </a>
+                    <Link :href="route('dashboard')"
+                        class="flex items-center space-x-3 px-4 py-2 text-purple-600 bg-purple-50 rounded-lg">
+                    <LayoutGrid class="w-5 h-5" />
+                    <span>Dashboard</span>
+                    </Link>
                     <a v-for="item in menuItems" :key="item.name"
                         class="flex items-center space-x-3 px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
                         <component :is="item.icon" class="w-5 h-5" />
@@ -135,24 +49,15 @@ const mentors = [
                     </a>
                 </nav>
 
-                <div class="mt-8">
-                    <div class="text-sm text-gray-500 px-4 mb-2">FRIENDS</div>
-                    <div v-for="friend in friends" :key="friend.name" class="flex items-center space-x-3 px-4 py-2">
-                        <img :src="friend.avatar" :alt="friend.name" class="w-8 h-8 rounded-full">
-                        <div>
-                            <div class="text-sm font-medium">{{ friend.name }}</div>
-                            <div class="text-xs text-gray-500">{{ friend.status }}</div>
-                        </div>
-                    </div>
-                </div>
+                <slot name="friends" />
 
                 <div class="mt-8">
                     <div class="text-sm text-gray-500 px-4 mb-2">SETTINGS</div>
-                    <a href="#"
+                    <Link :href="route('profile.show')"
                         class="flex items-center space-x-3 px-4 py-2 text-gray-600 hover:bg-gray-100 rounded-lg">
-                        <Settings class="w-5 h-5" />
-                        <span>Setting</span>
-                    </a>
+                    <Settings class="w-5 h-5" />
+                    <span>Setting</span>
+                    </Link>
                     <a href="#" class="flex items-center space-x-3 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg">
                         <LogOut class="w-5 h-5" />
                         <span>Logout</span>

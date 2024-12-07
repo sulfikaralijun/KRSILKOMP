@@ -11,10 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('pengajuan_has_user', function (Blueprint $table) {
+        Schema::create('krs', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignUlid('pengajuan_id')->constrained('pengajuan');
-            $table->foreignUlid('user_id')->constrained('users');
+            $table->foreignUlid('mahasiswa_id')->constrained('users');
+            $table->foreignUlid('kajur_id')->constrained('users')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +24,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('pengajuan_has_user');
+        Schema::dropIfExists('krs');
     }
 };

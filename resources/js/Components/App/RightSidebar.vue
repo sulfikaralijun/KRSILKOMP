@@ -1,10 +1,92 @@
 <script setup>
 import { usePage } from '@inertiajs/vue3';
-import { Bell, MoreHorizontal } from 'lucide-vue-next';
+import { Bell, LayoutGrid, MoreHorizontal } from 'lucide-vue-next';
 const page = usePage().props;
 const props = defineProps({
-    
+
 })
+
+const courses = [
+    {
+        title: 'Belajar HTML Dasar',
+        mentor: {
+            name: 'Bagas Mahpie',
+            avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+        },
+        category: 'HTML',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, voluptates.',
+        image: 'https://randomuser.me/api/portraits/men/1.jpg',
+        icon: LayoutGrid,
+    },
+]
+
+const activityBars = [
+    { date: 1, height: 40, isActive: true },
+    { date: 2, height: 20 },
+    { date: 3, height: 60 },
+    { date: 4, height: 40 },
+    { date: 5, height: 10 },
+    { date: 6, height: 20 },
+    { date: 7, height: 40 },
+    { date: 8, height: 20 },
+    { date: 9, height: 60 },
+    { date: 10, height: 40 },
+    { date: 11, height: 10 },
+    { date: 12, height: 20 },
+    { date: 13, height: 40 },
+    { date: 14, height: 20 },
+    { date: 15, height: 60 },
+    { date: 16, height: 40 },
+    { date: 17, height: 10 },
+    { date: 18, height: 20 },
+    { date: 19, height: 40 },
+    { date: 20, height: 20 },
+    { date: 21, height: 60 },
+    { date: 22, height: 40 },
+    { date: 23, height: 10 },
+    { date: 24, height: 20 },
+    { date: 25, height: 40 },
+    { date: 26, height: 20 },
+    { date: 27, height: 60 },
+    { date: 28, height: 40 },
+    { date: 29, height: 10 },
+    { date: 30, height: 20 },
+]
+
+const yourLessons = [
+    {
+        title: 'Belajar HTML Dasar',
+        mentor: {
+            name: 'Bagas Mahpie',
+            avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+        },
+        category: 'HTML',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, voluptates.',
+        image: 'https://randomuser.me/api/portraits/men/1.jpg',
+        icon: LayoutGrid,
+    },
+]
+
+const continueLessons = [
+    {
+        title: 'Belajar HTML Dasar',
+        mentor: {
+            name: 'Bagas Mahpie',
+            avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+        },
+        category: 'HTML',
+        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, voluptates.',
+        image: 'https://randomuser.me/api/portraits/men/1.jpg',
+        icon: LayoutGrid,
+    },
+]
+
+const mentors = [
+    {
+        name: 'Bagas Mahpie',
+        avatar: 'https://randomuser.me/api/portraits/men/1.jpg',
+    },
+]
 </script>
 <template>
     <!-- Right Sidebar -->
