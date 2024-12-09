@@ -1,6 +1,11 @@
 <script setup>
 import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { ArrowRight, ChevronLeft, ChevronRight, MoreVertical } from 'lucide-vue-next';
+import {
+    ArrowRight,
+    ChevronLeft,
+    ChevronRight,
+    MoreVertical,
+} from 'lucide-vue-next';
 </script>
 
 <template>
@@ -8,8 +13,11 @@ import { ArrowRight, ChevronLeft, ChevronRight, MoreVertical } from 'lucide-vue-
     <div
         class="bg-gradient-to-r from-purple-500 to-purple-600 rounded-2xl p-8 mb-6 text-white relative overflow-hidden">
         <div class="relative z-10">
-            <h1 class="text-2xl font-bold mb-2">Sharpen Your Skills with<br>Professional Online Courses</h1>
-            <button class="bg-black text-white px-6 py-2 rounded-full mt-4 flex items-center space-x-2">
+            <h1 class="text-2xl font-bold mb-2">
+                Sharpen Your Skills with<br />Professional Online Courses
+            </h1>
+            <button
+                class="bg-black text-white px-6 py-2 rounded-full mt-4 flex items-center space-x-2">
                 <span>Join Now</span>
                 <ArrowRight class="w-4 h-4" />
             </button>
@@ -17,7 +25,8 @@ import { ArrowRight, ChevronLeft, ChevronRight, MoreVertical } from 'lucide-vue-
         <div class="absolute right-0 top-0 h-full w-1/3">
             <div class="absolute right-8 top-1/2 transform -translate-y-1/2">
                 <div class="w-20 h-20 bg-white/20 rounded-full"></div>
-                <div class="w-32 h-32 bg-white/10 rounded-full absolute -top-8 -right-8"></div>
+                <div
+                    class="w-32 h-32 bg-white/10 rounded-full absolute -top-8 -right-8"></div>
             </div>
         </div>
     </div>

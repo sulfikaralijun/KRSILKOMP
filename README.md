@@ -9,7 +9,8 @@
 
 ## SETUP APP
 
-### Install Packages 
+### Install Packages
+
 ```bash
 composer install
 
@@ -17,20 +18,31 @@ npm install
 ```
 
 ### Generate Key
+
 ```bash
 php artisan key:generate
 ```
 
-### Migrate database and seeder 
+### Migrate database and seeder
+
 ```bash
 php artisan migrate --seed
 ```
 
 ### Running App
+
 ```bash
 php artisan serve
 
 npm run dev
 ```
+
+### Frontend Code Formatting
+
+To maintain clean and consistent code, ensure you run the following command before committing any frontend changes:
+```bash
+npm run format
+```
+
 
 <center><strong>Never Stop Learning 🔥</strong></center>
