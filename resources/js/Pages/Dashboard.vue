@@ -5,7 +5,6 @@ import RightSidebar from '@/Components/App/RightSidebar.vue';
 </script>
 
 <template>
-
     <AppLayout title="Dashboard">
         <Welcome />
         <template #right-sidebar>
