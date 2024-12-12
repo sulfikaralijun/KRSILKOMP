@@ -29,8 +29,7 @@ const menuItems = [
             <div class="p-4">
                 <div class="flex items-center space-x-2">
                     <div class="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
-                        <img src="https://pps.whatsapp.net/v/t61.24694-24/420482609_1279759263406633_4540009633187187378_n.jpg?ccb=11-4&oh=01_Q5AaIB9scMCzQJRxUWSF5182XED41x7-sZY0fqO-2rV5dzwA&oe=6752B39D&_nc_sid=5e03e0&_nc_cat=104"
-                            alt="ilkomp" class="rounded">
+                        <img src="/assets/img/logokrs.jpg" alt="ilkomp" class="rounded">
                     </div>
                     <span class="text-xl font-semibold">KRS ILKOMP</span>
                 </div>
