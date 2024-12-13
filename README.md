@@ -44,5 +44,14 @@ To maintain clean and consistent code, ensure you run the following command befo
 npm run format
 ```
 
+### Users Dummy
+
+| email                 | password |
+| :--------             | :------- |
+| zik@gmail.com         | admin123 |
+| dosen@gmail.com       | admin123 |
+| asisten@gmail.com     | admin123 |
+| mahasiswa@gmail.com   | admin123 |
+
 
 <center><strong>Never Stop Learning 🔥</strong></center>

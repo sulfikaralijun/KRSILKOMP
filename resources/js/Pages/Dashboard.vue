@@ -5,10 +5,12 @@ import RightSidebar from '@/Components/App/RightSidebar.vue';
 </script>
 
 <template>
-    <AppLayout title="Dashboard">
-        <Welcome />
-        <template #right-sidebar>
-            <RightSidebar></RightSidebar>
-        </template>
-    </AppLayout>
+    <keep-alive>
+        <AppLayout title="Dashboard">
+            <Welcome />
+            <template #right-sidebar>
+                <RightSidebar></RightSidebar>
+            </template>
+        </AppLayout>
+    </keep-alive>
 </template>
