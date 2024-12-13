@@ -5,3 +5,19 @@
 [x-cloak] {
     display: none;
 }
+
+.menus {
+    @apply flex items-center space-x-3 px-4 py-2 rounded-lg;
+}
+
+.submenu {
+    @apply flex items-center space-x-3 px-4 py-2 text-gray-500 rounded-lg hover:bg-gray-100;
+}
+
+.active {
+    @apply text-purple-600 bg-purple-50;
+}
+
+.inactive {
+    @apply text-gray-600 hover:bg-gray-100;
+}

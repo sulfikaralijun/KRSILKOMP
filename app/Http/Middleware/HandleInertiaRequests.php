@@ -2,6 +2,7 @@
 
 namespace App\Http\Middleware;
 
+use App\Models\Menu;
 use Illuminate\Http\Request;
 use Inertia\Middleware;
 
@@ -36,7 +37,18 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            //
+            'menus' => function () use ($request) {
+                if ($user = $request->user()) {
+                    return cache()->remember("menus_for_user_{$user->id}", 60, function () use ($user) {
+                        return Menu::whereHas('roles', function ($query) use ($user) {
+                            $query->where('name', $user->getRoleNames()); // Menggunakan Spatie untuk mendapatkan role
+                        })
+                            ->orderBy('order')
+                            ->get();
+                    });
+                }
+                return [];
+            },
         ]);
     }
 }
