@@ -40,6 +40,7 @@ npm run dev
 ### Frontend Code Formatting
 
 To maintain clean and consistent code, ensure you run the following command before committing any frontend changes:
+
 ```bash
 npm run format
 ```
