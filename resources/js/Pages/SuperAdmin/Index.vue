@@ -1,11 +1,6 @@
-<script setup>
-
-</script>
+<script setup></script>
 <template>
-<!-- Layout App -->
+    <!-- Layout App -->
 </template>
 
-<style lang="scss" scoped>
-
-</style>
-
+<style lang="scss" scoped></style>
