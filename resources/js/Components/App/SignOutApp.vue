@@ -7,11 +7,11 @@ const logout = () => {
 </script>
 <template>
     <form @submit.prevent="logout">
-        <button type="submit"
+        <button
+            type="submit"
             class="flex items-center space-x-3 px-4 py-2 text-red-600 hover:bg-red-50 rounded-lg w-full">
             <LogOut class="w-5 h-5" />
             <span>Logout</span>
         </button>
     </form>
 </template>
-
