@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers\Apps\Mahasiswa;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Http;
 
 class PengajuanController extends Controller
 {
@@ -14,6 +15,24 @@ class PengajuanController extends Controller
     public function index()
     {
         return Inertia::render('Mahasiswa/Pengajuan/Index');
+    }
+
+    public function getCompletion(Request $request)
+    {
+        $prompt = $request->input('prompt');
+        $response = Http::withToken(env('OPENAI_API_KEY'))->post('https://api.x.ai/v1/chat/completions', [
+            'model' => 'grok-beta',
+            'messages' => [
+                ['role' => 'user', 'content' => $prompt],
+            ],
+        ]);
+
+        $res = $response->json();
+
+        return response()->json([
+            'message' => $res['choices'][0]['message']['content'],
+            'status' => 'success',
+        ]);
     }
 
     /**
