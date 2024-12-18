@@ -8,7 +8,7 @@
                     alt="ilkomp"
                     class="rounded" />
             </div>
-            <span class="text-xl font-semibold">KRS ILKOMP</span>
+            <span class="text-xl text-gray-800 dark:text-white font-semibold">KRS ILKOMP</span>
         </div>
     </lazy-component>
 </template>
