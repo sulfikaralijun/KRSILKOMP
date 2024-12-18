@@ -1,6 +1,7 @@
 <script setup>
 import { router } from '@inertiajs/vue3';
 import { LogOut } from 'lucide-vue-next';
+
 const logout = () => {
     router.post(route('logout'));
 };

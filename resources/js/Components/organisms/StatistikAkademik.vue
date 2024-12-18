@@ -1,3 +1,13 @@
+<script setup>
+import { ref } from 'vue';
+import { BookOpen, Award, TrendingUp, BookMarked } from 'lucide-vue-next';
+
+const totalSKS = ref(120);
+const indeksPrestasi = ref(3.75);
+const progresKelulusan = ref(75);
+const mataKuliahTersisa = ref(10);
+</script>
+
 <template>
     <div class="bg-white shadow rounded-lg p-6">
         <h2 class="text-2xl font-semibold text-gray-900 mb-6">
@@ -59,13 +69,3 @@
         </div>
     </div>
 </template>
-
-<script setup>
-import { ref } from 'vue';
-import { BookOpen, Award, TrendingUp, BookMarked } from 'lucide-vue-next';
-
-const totalSKS = ref(120);
-const indeksPrestasi = ref(3.75);
-const progresKelulusan = ref(75);
-const mataKuliahTersisa = ref(10);
-</script>
