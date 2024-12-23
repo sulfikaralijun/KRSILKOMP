@@ -1,6 +1,8 @@
 <template>
     <nav class="mt-8 space-y-2">
-        <div class="text-sm text-gray-500 dark:text-gray-400 px-4 mb-2">OVERVIEW</div>
+        <div class="text-sm text-gray-500 dark:text-gray-400 px-4 mb-2">
+            OVERVIEW
+        </div>
         <div v-for="(item, index) in menuItems" :key="item.id">
             <div class="flex justify-between items-center w-full">
                 <Link
@@ -48,7 +50,6 @@ import { Link, usePage } from '@inertiajs/vue3';
 import * as LucideIcons from 'lucide-vue-next';
 
 const { props } = usePage();
-console.log(props);
 
 const menuItems = buildMenuHierarchy(props.menus || []);
 

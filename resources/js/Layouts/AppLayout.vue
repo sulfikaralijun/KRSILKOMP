@@ -4,12 +4,9 @@ import SignOutApp from '@/Components/App/SignOutApp.vue';
 import Menus from '@/Components/App/Menus.vue';
 import { Head, Link } from '@inertiajs/vue3';
 import ToggleDarkMode from '@/Components/App/ToggleDarkMode.vue';
-import {
-    Settings,
-    Search,
-    PanelLeft,
-} from 'lucide-vue-next';
+import { Settings, Search, PanelLeft } from 'lucide-vue-next';
 import { onMounted, onUnmounted, ref } from 'vue';
+import ToastAlert from '@/Components/App/partials/ToastAlert.vue';
 
 defineProps({
     title: String,
@@ -72,7 +69,8 @@ onUnmounted(() => {
                         <PanelLeft ref="panelLeft" @click="leftSideBarActive = !leftSideBarActive"
                             class="md:hidden h-6 w-6 cursor-pointer ring-offset-1 hover:ring-2 ring-blue-500 rounded-sm transition-colors duration-100 hover:text-blue-500" />
                         <div class="relative flex-1 max-w-2xl">
-                            <Search class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-600 w-5 h-5" />
+                            <Search
+                                class="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 dark:text-gray-600 w-5 h-5" />
                             <input type="text" placeholder="Search your course..."
                                 class="w-full pl-10 pr-4 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-purple-500 dark:bg-gray-800" />
                         </div>
@@ -80,6 +78,8 @@ onUnmounted(() => {
                     </div>
                     <slot />
                 </div>
+                <!-- Toast Container -->
+                <ToastAlert :errors="$page.props.errors" />
             </main>
 
             <slot name="right-sidebar" />
