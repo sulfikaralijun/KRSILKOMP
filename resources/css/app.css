@@ -21,3 +21,9 @@
 .inactive {
     @apply text-gray-600 hover:bg-gray-100 dark:text-gray-200 dark:hover:bg-gray-900;
 }
+
+.hide-arrow[type="number"]::-webkit-inner-spin-button,
+.hide-arrow[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}

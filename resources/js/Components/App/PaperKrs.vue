@@ -1,10 +1,9 @@
 <script setup>
 import TopikKrs from './partials/TopikKrs.vue';
 import AddPaper from './partials/AddPaper.vue';
-import { Plus, X } from 'lucide-vue-next';
+import AddTopik from './partials/AddTopik.vue';
+import { Plus } from 'lucide-vue-next';
 import { ref } from 'vue';
-import { useForm } from '@inertiajs/vue3';
-import { getCurrentFormattedDate } from '@/helpers/helper';
 
 defineProps({
     data: Object,
@@ -12,10 +11,6 @@ defineProps({
 });
 
 const showNewRow = ref(false);
-const newPengajuan = useForm({
-    topik: '',
-    smt: ''
-});
 
 function addPengajuan() {
     showNewRow.value = true;
@@ -23,16 +18,6 @@ function addPengajuan() {
 
 function cancelPengajuan() {
     showNewRow.value = false;
-    newPengajuan.reset();
-}
-
-function savePengajuan() {
-    newPengajuan.post(route('pengajuan.store'), {
-        onSuccess: () => {
-            showNewRow.value = false;
-            newPengajuan.reset();
-        }
-    });
 }
 </script>
 <template>
@@ -72,31 +57,12 @@ function savePengajuan() {
                                     {{ d.paraf }}
                                 </td>
                             </tr>
-                            <tr v-if="showNewRow">
-                                <td class="border text-center px-6 py-3 text-gray-800 dark:text-gray-100">
-                                    {{ data.pengajuans.length + 1 }}
-                                </td>
-                                <td class="border text-center px-6 py-3 text-gray-800 dark:text-gray-100 text-sm">
-                                    {{ getCurrentFormattedDate() }}
-                                </td>
-                                <td class="border text-center text-gray-800 dark:text-gray-100">
-                                    <input v-model="newPengajuan.topik" type="text" class="w-full"
-                                        placeholder="Topik Konsultasi" />
-                                </td>
-                                <td class="border text-center text-gray-800 dark:text-gray-100">
-                                    <input v-model="newPengajuan.smt" type="text" class="w-full" placeholder="SMT" />
-                                </td>
-                                <td class="border text-center px-6 py-3 text-gray-800 dark:text-gray-100">
-                                    <button @click="savePengajuan"
-                                        class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded">Save</button>
-                                    <button @click="cancelPengajuan"
-                                        class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-2 rounded">Cancel</button>
-                                </td>
-                            </tr>
+                            <AddTopik v-if="showNewRow" :data="data" :showNewRow="showNewRow"
+                                @cancel="cancelPengajuan" />
                         </tbody>
                     </table>
                 </div>
-                <div class="border border-none text-center py-2 align-bottom relative overflow-visible">
+                <div v-if="data" class="border border-none text-center py-2 align-bottom relative overflow-visible">
                     <button @click="addPengajuan"
                         class="bg-blue-500 hover:bg-blue-700 dark:bg-blue-200 text-white dark:text-gray-800 font-bold rounded absolute bottom-2 right-0 translate-x-1.5 p-0.5">
                         <Plus height="18" width="18" />

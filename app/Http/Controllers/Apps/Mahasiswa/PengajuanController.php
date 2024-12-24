@@ -6,6 +6,7 @@ use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PengajuanRequest;
+use App\Http\Requests\PengajuanStoreRequest;
 use App\Http\Resources\DosenResource;
 use App\Http\Resources\KrsResource;
 use App\Models\Krs;
@@ -61,7 +62,8 @@ class PengajuanController extends Controller
         $response = Http::withToken(env('OPENAI_API_KEY'))->post('https://api.x.ai/v1/chat/completions', [
             'model' => 'grok-beta',
             'messages' => [
-                ['role' => 'user', 'content' => $prompt],
+                ['role' => 'system', 'content' => 'Jawablah dengan santai dan langsung ke intinya. Jika pertanyaan tentang "siapa saya", sebutkan nama pengguna. Jika pertanyaan tentang model atau API, sebutkan bahwa AI ini dibuat oleh Zikkk dengan tambahan pujian seperti "keren banget, kan?". Untuk pertanyaan lainnya, beri jawaban langsung tanpa basa-basi.'],
+                ['role' => 'user', 'content' => 'Jika ada yang bertanya "siapa saya", jawab bahwa dia adalah ' . Auth::user()->name . '. Jika pertanyaannya tentang model atau API yang digunakan aplikasi, jawab dengan pujian Zikkk. Pertanyaannya: ' . $prompt],
             ],
         ]);
 
@@ -84,7 +86,7 @@ class PengajuanController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(PengajuanStoreRequest $request)
     {
         try {
             $krs = Krs::firstOrCreate(

@@ -9,6 +9,7 @@ import PrimaryButton from '@/Components/atoms/PrimaryButton.vue';
 import InputLabel from '@/Components/atoms/InputLabel.vue';
 import Badge from './Badge.vue';
 import { Trash } from 'lucide-vue-next';
+import InputError from '@/Components/atoms/InputError.vue';
 const page = usePage().props;
 const form = useForm({
     dosen_id: null,
@@ -29,9 +30,6 @@ const submit = () => {
         preserveScroll: true,
         onSuccess: () => {
             isOpen.value = false;
-        },
-        onError: (e) => {
-            console.log(e);
         }
     });
 };
@@ -71,6 +69,7 @@ const closeModal = () => {
                                 class="w-6 h-6 bg-red-600 text-white rounded-md p-1 cursor-pointer" />
                         </div>
                         <ItemSearch get-route="pengajuan.search" :data="page.dosen" @select="selectDosenKoordinator" />
+                        <InputError :message="form.errors.dosen_id" />
                     </div>
                     <div class="w-full">
                         <InputLabel class="ps-1" value="Dosen PA" />
@@ -82,6 +81,7 @@ const closeModal = () => {
                                 class="w-6 h-6 bg-red-600 text-white rounded-md p-1 cursor-pointer" />
                         </div>
                         <ItemSearch get-route="pengajuan.search" :data="page.dosen" @select="selectDosenPa" />
+                        <InputError :message="form.errors.dosen_pa_id" />
                     </div>
                 </div>
                 <div class="pt-4 flex justify-end gap-3">
