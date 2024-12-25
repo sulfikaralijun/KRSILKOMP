@@ -91,8 +91,7 @@ const validateKeydown = (event) => {
                 </button>
                 <textarea v-model="newPengajuan.topik"
                     class="w-full p-2 dark:bg-gray-700 overflow-hidden border border-none"
-                    placeholder="Masukkan Topik Konsultasi Anda." maxlength="255"
-                    @input="(event) => {
+                    placeholder="Masukkan Topik Konsultasi Anda." maxlength="255" @input="(event) => {
                         event.target.style.height = 'auto';
                         event.target.style.height = event.target.scrollHeight + 'px';
                     }"></textarea>
@@ -109,12 +108,10 @@ const validateKeydown = (event) => {
         <td>
             <div class="flex items-center justify-center gap-2">
                 <button @click="savePengajuan" :disabled="newPengajuan.processing"
-                    :class="{ 'bg-green-300 hover:bg-green-400': newPengajuan.processing }"
-                    class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-1 rounded">
+                    :class="{ 'bg-gray-300': newPengajuan.processing }" class="zbutton-primary p-0.5 px-2">
                     <CheckIcon />
                 </button>
-                <button @click="cancelPengajuan"
-                    class="bg-red-500 hover:bg-red-700 text-white font-bold py-1 px-1 rounded">
+                <button @click="cancelPengajuan" class="zbutton-danger p-0.5 px-2">
                     <XIcon />
                 </button>
             </div>

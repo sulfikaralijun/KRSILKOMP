@@ -4,6 +4,8 @@ import AddPaper from './partials/AddPaper.vue';
 import AddTopik from './partials/AddTopik.vue';
 import { Plus } from 'lucide-vue-next';
 import { ref } from 'vue';
+import SmtAction from './partials/SmtAction.vue';
+import Paraf from './partials/Paraf.vue';
 
 defineProps({
     data: Object,
@@ -31,9 +33,9 @@ function cancelPengajuan() {
                             <tr>
                                 <th width="2%" class="table-head">No</th>
                                 <th width="28%" class="px-6 py-3 table-head">Tanggal</th>
-                                <th width="50%" class="px-6 py-3 table-head">Topik Konsultasi</th>
+                                <th width="55%" class="px-6 py-3 table-head">Topik Konsultasi</th>
                                 <th width="5%" class="px-6 py-3 table-head">SMT</th>
-                                <th width="15%" class="px-6 py-3 table-head">Paraf PA</th>
+                                <th width="10%" class="px-6 py-3 table-head">Paraf PA</th>
                             </tr>
                         </thead>
                         <tbody class="divide-y divide-gray-200 dark:divide-neutral-700">
@@ -50,12 +52,8 @@ function cancelPengajuan() {
                                     {{ d.created_at }}
                                 </td>
                                 <TopikKrs :data="d" />
-                                <td class="border text-center px-6 py-3 text-gray-800 dark:text-gray-100">
-                                    {{ d.smt }}
-                                </td>
-                                <td class="border text-center px-6 py-3 text-gray-800 dark:text-gray-100">
-                                    {{ d.paraf }}
-                                </td>
+                                <SmtAction :data="d" />
+                                <Paraf :data="d" />
                             </tr>
                             <AddTopik v-if="showNewRow" :data="data" :showNewRow="showNewRow"
                                 @cancel="cancelPengajuan" />
@@ -74,6 +72,6 @@ function cancelPengajuan() {
 </template>
 <style scoped>
 .table-head {
-    @apply border text-center text-xs font-medium text-gray-500 uppercase dark:text-neutral-500;
+    @apply border text-center text-xs font-medium text-gray-700 uppercase dark:text-neutral-50;
 }
 </style>
