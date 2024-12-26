@@ -1,6 +1,7 @@
 <script setup>
 import { PencilLine, RefreshCw, Sparkles } from 'lucide-vue-next';
 import { getCompletion } from '@/libs/ZikAi';
+import { textBold } from '@/helpers/helper';
 import { useForm } from '@inertiajs/vue3';
 import { ref } from 'vue';
 
@@ -17,6 +18,7 @@ const isLoading = ref(false);
 const form = useForm({
     id: props.data.id,
     topik: props.data.topik,
+    smt: props.data.smt,
 });
 
 async function getCompletionResponse(message) {
@@ -46,12 +48,7 @@ async function getCompletionResponse(message) {
 const sendToBackend = () => {
     if (form.topik !== props.data.topik) {
         form.put(route('pengajuan.update', form.id), {
-            onSuccess: () => {
-                console.log('Topik berhasil disimpan.');
-            },
-            onError: (errors) => {
-                console.error('Gagal menyimpan topik:', errors);
-            },
+            preserveScroll: true,
         });
     }
 };
@@ -98,7 +95,8 @@ const onKeyDown = (event) => {
 
         <template v-else>
             <div class="flex items-start">
-                <div class="w-full">{{ form?.topik ?? '-' }}</div>
+                <!-- {{ form.id }} -->
+                <div class="w-full" v-html="textBold(form?.topik || '-')"></div>
                 <template v-if="form.processing">
                     <RefreshCw class="w-4 h-4 ml-1 animate-spin" />
                 </template>

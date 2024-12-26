@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('krs', function (Blueprint $table) {
             $table->string('id')->primary();
-            $table->foreignUlid('mahasiswa_id')->constrained('users');
-            $table->foreignUlid('kajur_id')->constrained('users')->nullable();
+            $table->foreignUlid('mahasiswa_id', 55)->constrained('users');
+            $table->foreignUlid('kajur_id', 55)->nullable()->constrained('users');
+            $table->foreignUlid('dosen_id', 55)->nullable()->constrained('users');
             $table->timestamps();
         });
     }

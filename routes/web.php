@@ -24,6 +24,8 @@ Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified']
 
     Route::middleware(['role:mahasiswa|dosen|asisten'])->group(function () {
         Route::resource('pengajuan', PengajuanController::class);
+        Route::post('create-paper', [PengajuanController::class, 'store'])->name('pengajuan.store');
+        Route::post('pengajuan', [PengajuanController::class, 'index'])->name('pengajuan.search');
         Route::post('get-completion', [PengajuanController::class, 'getCompletion'])->name('get-completion');
         Route::resource('pembelajaran', PembelajaranController::class);
         Route::resource('kelas', KelasController::class);

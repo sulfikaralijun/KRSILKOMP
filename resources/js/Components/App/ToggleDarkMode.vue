@@ -1,6 +1,6 @@
 <script setup>
-import { useDark, useToggle } from "@vueuse/core";
-import { Sun, MoonStar } from "lucide-vue-next";
+import { useDark, useToggle } from '@vueuse/core';
+import { Sun, MoonStar } from 'lucide-vue-next';
 
 const isDark = useDark();
 const toggleDark = useToggle(isDark);
@@ -8,7 +8,11 @@ const toggleDark = useToggle(isDark);
 
 <template>
     <div class="relative inline-block" @click="toggleDark()">
-        <input id="darkmode-switch" type="checkbox" class="peer checked-doggle" :checked="isDark" />
+        <input
+            id="darkmode-switch"
+            type="checkbox"
+            class="peer checked-doggle"
+            :checked="isDark" />
         <span class="peer-checked:text-blue-600 doggle-peer-r">
             <Sun />
         </span>

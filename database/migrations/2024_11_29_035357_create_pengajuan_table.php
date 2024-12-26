@@ -15,10 +15,9 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->text('topik');
             $table->tinyInteger('semester');
-            $table->enum('status', ['draft', 'setuju', 'revisi'])->default('draft');
+            $table->enum('status', ['draft', 'menunggu', 'setuju', 'revisi'])->default('draft');
             $table->text('keterangan')->nullable();
-            $table->foreignUlid('dosen_id')->constrained('users')->nullable();
-            $table->foreignUlid('krs_id')->constrained('krs');
+            $table->foreignUlid('krs_id', 55)->constrained('krs');
             $table->timestamps();
         });
     }
